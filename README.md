@@ -1,27 +1,6 @@
-# SpaceX
+# Angular Spacex Graphql Codegen
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.18.
+Angular application that lists previous SpaceX releases, plus an associated detailed page. The data is provided through the [SpaceX GraphQL API](https://medium.com/open-graphql/launching-spacex-graphql-api-b3d7029086e0) and the angular service is generated via [GraphQL Code Generator](https://graphql-code-generator.com/). I also used Apollo Angular to access data from the frontend.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![project](https://i.imgur.com/L0m2lWd.png)
+![project-details](https://i.imgur.com/Wh1VIEK.png)
