@@ -19,7 +19,7 @@ export class LaunchDetailsComponent implements OnInit {
   launchDetails$ = this.route.paramMap.pipe(
     switchMap(params => {
       const id = params.get('id');
-      return this.launchDetailsService.fetch({ id })
+      return this.launchDetailsService.fetch({ id });
     }),
     map(res => res.data.launch)
   );

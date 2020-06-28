@@ -1330,14 +1330,18 @@ export type LaunchDetailsQueryVariables = Exact<{
 
 export type LaunchDetailsQuery = (
   { __typename?: 'Query' }
-  & { launch?: Maybe<(
-    { __typename?: 'Launch' }
-    & Pick<Launch, 'id' | 'mission_name' | 'details'>
-    & { links?: Maybe<(
-      { __typename?: 'LaunchLinks' }
-      & Pick<LaunchLinks, 'flickr_images' | 'mission_patch'>
-    )> }
-  )> }
+  & {
+    launch?: Maybe<(
+      { __typename?: 'Launch' }
+      & Pick<Launch, 'id' | 'mission_name' | 'details'>
+      & {
+        links?: Maybe<(
+          { __typename?: 'LaunchLinks' }
+          & Pick<LaunchLinks, 'flickr_images' | 'mission_patch'>
+        )>
+      }
+    )>
+  }
 );
 
 export type PastLaunchesListQueryVariables = Exact<{
@@ -1347,17 +1351,21 @@ export type PastLaunchesListQueryVariables = Exact<{
 
 export type PastLaunchesListQuery = (
   { __typename?: 'Query' }
-  & { launchesPast?: Maybe<Array<Maybe<(
-    { __typename?: 'Launch' }
-    & Pick<Launch, 'id' | 'mission_name' | 'launch_date_utc'>
-    & { links?: Maybe<(
-      { __typename?: 'LaunchLinks' }
-      & Pick<LaunchLinks, 'flickr_images' | 'mission_patch_small'>
-    )>, rocket?: Maybe<(
-      { __typename?: 'LaunchRocket' }
-      & Pick<LaunchRocket, 'rocket_name'>
-    )> }
-  )>>> }
+  & {
+    launchesPast?: Maybe<Array<Maybe<(
+      { __typename?: 'Launch' }
+      & Pick<Launch, 'id' | 'mission_name' | 'launch_date_utc'>
+      & {
+        links?: Maybe<(
+          { __typename?: 'LaunchLinks' }
+          & Pick<LaunchLinks, 'flickr_images' | 'mission_patch_small'>
+        )>, rocket?: Maybe<(
+          { __typename?: 'LaunchRocket' }
+          & Pick<LaunchRocket, 'rocket_name'>
+        )>
+      }
+    )>>>
+  }
 );
 
 export const LaunchDetailsDocument = gql`
@@ -1374,13 +1382,13 @@ export const LaunchDetailsDocument = gql`
 }
     `;
 
-  @Injectable({
-    providedIn: 'root'
-  })
-  export class LaunchDetailsGQL extends Apollo.Query<LaunchDetailsQuery, LaunchDetailsQueryVariables> {
-    document = LaunchDetailsDocument;
-    
-  }
+@Injectable({
+  providedIn: 'root'
+})
+export class LaunchDetailsGQL extends Apollo.Query<LaunchDetailsQuery, LaunchDetailsQueryVariables> {
+  document = LaunchDetailsDocument;
+
+}
 export const PastLaunchesListDocument = gql`
     query pastLaunchesList($limit: Int!) {
   launchesPast(limit: $limit) {
@@ -1398,10 +1406,10 @@ export const PastLaunchesListDocument = gql`
 }
     `;
 
-  @Injectable({
-    providedIn: 'root'
-  })
-  export class PastLaunchesListGQL extends Apollo.Query<PastLaunchesListQuery, PastLaunchesListQueryVariables> {
-    document = PastLaunchesListDocument;
-    
-  }
+@Injectable({
+  providedIn: 'root'
+})
+export class PastLaunchesListGQL extends Apollo.Query<PastLaunchesListQuery, PastLaunchesListQueryVariables> {
+  document = PastLaunchesListDocument;
+
+}
